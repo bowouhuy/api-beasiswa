@@ -134,6 +134,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                     </div>
                 </div>
+                <div class="card mt-3">
+                    <div class="card-body">
+                        Mengimport Data </br>
+                        METHOD : <b>POST</b> </br>
+                        Endpoint : <a href="<?php echo base_url('api/import')?>" class=""><?php echo base_url('api/import')?></a></br>
+                        <button class="btn btn-primary mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseImport" aria-expanded="false" aria-controls="collapseExample">
+                            Show Parameter
+                        </button>
+                        <div class="collapse" id="collapseImport">
+                            <div class="card card-body">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td><b>Name</b></td>
+                                        <td><b>Value</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>userfile</td>
+                                        <td>Form data input type file</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                <div class="card-body">
+                        Mengexport Data </br>
+                        METHOD : <b>GET</b> </br>
+                        Endpoint : <a href="<?php echo base_url('api/export')?>" class=""><?php echo base_url('api/export')?></a></br>
+                        
+                    </div>
+                </div>
             </div>
         </div>
     </div>
