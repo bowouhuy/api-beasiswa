@@ -56,6 +56,17 @@ class Api extends RestController {
         $semester = $this->post('semester');
         $beasiswa = $this->post('beasiswa');
         $periode = $this->post('periode');
+        $config['upload_path']          = './assets';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 100000;
+        $config['max_width']            = 2048;
+        $config['max_height']           = 1586;
+
+        $this->load->library('upload', $config);
+        $this->upload->do_upload('file');
+        $upload_data = array('upload_data' => $this->upload->data());
+        $filepath = $upload_data['upload_data']['file_name'];
+
         $data = array(
             'npm' => $npm,
             'nama' => $nama,
@@ -63,6 +74,7 @@ class Api extends RestController {
             'semester' => $semester,
             'beasiswa' => $beasiswa,
             'periode' => $periode,
+            'image' => base_url('assets/').$filepath
         );
 
         $response = $this->Beasiswa->insert($data);
@@ -91,6 +103,16 @@ class Api extends RestController {
         $semester = $this->put('semester');
         $beasiswa = $this->put('beasiswa');
         $periode = $this->put('periode');
+        $config['upload_path']          = './assets';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 100000;
+        $config['max_width']            = 2048;
+        $config['max_height']           = 1586;
+
+        $this->load->library('upload', $config);
+        $this->upload->do_upload('file');
+        $upload_data = array('upload_data' => $this->upload->data());
+        $filepath = $upload_data['upload_data']['file_name'];
         $data = array(
             'npm' => $npm,
             'nama' => $nama,
@@ -98,6 +120,8 @@ class Api extends RestController {
             'semester' => $semester,
             'beasiswa' => $beasiswa,
             'periode' => $periode,
+            'image' => base_url('assets/').$filepath
+
         );
 
         $response = $this->Beasiswa->edit($data);

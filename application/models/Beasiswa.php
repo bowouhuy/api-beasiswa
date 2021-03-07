@@ -5,13 +5,13 @@ Class Beasiswa extends CI_Model{
     public function list($where, $npm=null){
 
         if($npm != null){
-            $result = $this->db->query("SELECT npm, m.nama, p.prodi_nama, f.fakultas_nama, semester, beasiswa, periode FROM mahasiswa m 
+            $result = $this->db->query("SELECT npm, m.nama, p.prodi_nama, f.fakultas_nama, semester, beasiswa, periode, image FROM mahasiswa m 
                         LEFT JOIN prodi p ON m.prodi = p.id
                         LEFT JOIN fakultas f ON p.fakultas_id = f.id
                         WHERE m.npm = '$npm'")->row_array();
             
         }else{
-            $result = $this->db->query("SELECT npm, m.nama, p.prodi_nama, f.fakultas_nama, semester, beasiswa, periode FROM mahasiswa m 
+            $result = $this->db->query("SELECT npm, m.nama, p.prodi_nama, f.fakultas_nama, semester, beasiswa, periode, image FROM mahasiswa m 
                         LEFT JOIN prodi p ON m.prodi = p.id
                         LEFT JOIN fakultas f ON p.fakultas_id = f.id")->result_array();
                         
